@@ -147,7 +147,8 @@ void HelloWorld::createWebView()
     webview->setContentSize(visibleSize);
     webview->setPosition(visibleSize/2);
     webview->loadURL("http://www.baidu.com");
-    CCLOGINFO("SIZE:",visibleSize);
+//    CCLOGINFO("SIZE:",visibleSize);
 //    CCLOG(visibleSize);
+    CCLOGINFO(visibleSize);
     addChild(webview);
 }
