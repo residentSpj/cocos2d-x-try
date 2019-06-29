@@ -25,7 +25,11 @@
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
 
+#include "ui/CocosGUI.h"
+
 USING_NS_CC;
+
+using namespace cocos2d::experimental::ui;
 
 Scene* HelloWorld::createScene()
 {
@@ -115,6 +119,9 @@ bool HelloWorld::init()
         // add the sprite as a child to this layer
         this->addChild(sprite, 0);
     }
+    
+    createWebView();
+    
     return true;
 }
 
@@ -130,4 +137,17 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
     //_eventDispatcher->dispatchEvent(&customEndEvent);
 
 
+}
+
+void HelloWorld::createWebView()
+{
+    auto visibleSize = Director::getInstance()->getVisibleSize();
+    
+    auto webview = WebView::create();
+    webview->setContentSize(visibleSize);
+    webview->setPosition(visibleSize/2);
+    webview->loadURL("http://www.baidu.com");
+    CCLOGINFO("SIZE:",visibleSize);
+//    CCLOG(visibleSize);
+    addChild(webview);
 }
